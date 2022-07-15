@@ -211,6 +211,21 @@ async def delete_all_index(bot, message):
         quote=True,
     )
 
+@Client.on_message(filters.command('about'))
+async def delete_all_index(bot, message):
+    await message.reply_text(
+        '𝐂𝐥𝐢𝐜𝐤 𝐭𝐡𝐞 𝐛𝐞𝐥𝐨𝐰 𝐛𝐮𝐭𝐭𝐨𝐧 𝐭𝐨 𝐤𝐧𝐨𝐰 𝐬𝐨𝐦𝐞𝐭𝐡𝐢𝐧𝐠 𝐚𝐛𝐨𝐮𝐭 𝐦𝐞',
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="𝙰𝙱𝙾𝚄𝚃", callback_data="about"
+                    )
+                ]
+            ]
+        ),
+        quote=True,
+    )
 
 @Client.on_callback_query(filters.regex(r'^autofilter_delete'))
 async def delete_all_index_confirm(bot, message):
