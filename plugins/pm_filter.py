@@ -955,6 +955,30 @@ InlineKeyboardButton('manual', callback_data='manualfilter')
 async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
+        if count>0:
+        time.sleep(1)
+        results = YoutubeSearch(query, max_results=1).to_dict()
+        count += 1
+    # results = YoutubeSearch(query, max_results=1).to_dict()
+    try:
+        link = f"https://youtube.com{results[0]['url_suffix']}"
+        # print(results)
+        title = results[0]["title"]
+        thumbnail = results[0]["thumbnails"][0]
+        duration = results[0]["duration"]
+        views = results[0]["views"]
+
+        ## UNCOMMENT THIS IF YOU WANT A LIMIT ON DURATION. CHANGE 1800 TO YOUR OWN PREFFERED DURATION AND EDIT THE MESSAGE (30 minutes cap) LIMIT IN SECONDS
+        # if time_to_seconds(duration) >= 1800:  # duration limit
+        #     m.edit("Exceeded 30mins cap")
+        #     return
+
+        performer = f"[@lord1of5darkness9]"
+        thumb_name = f'thumb{message.message_id}.jpg'
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, 'wb').write(thumb.content)
+            return 
+         
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
         if 2 < len(message.text) < 100:
