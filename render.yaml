@@ -32,3 +32,5 @@ services:
         sync: false
       - key: CUSTOM_FILE_CAPTION
         sync: false
+      - key: CHANNELS
+        sync: false     
