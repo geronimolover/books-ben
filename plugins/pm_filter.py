@@ -977,8 +977,7 @@ async def auto_filter(client, msg, spoll=False):
         thumb_name = f'thumb{message.message_id}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
-            else:
-               return
+
          
         if re.findall("((^\/|^,|^!|^\.|^[\U0001F600-\U000E007F]).*)", message.text):
             return
