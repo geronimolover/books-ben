@@ -956,9 +956,9 @@ async def auto_filter(client, msg, spoll=False):
     if not spoll:
         message = msg
         if count>0:
-        time.sleep(1)
-        results = YoutubeSearch(query, max_results=1).to_dict()
-        count += 1
+            time.sleep(1)
+            results = YoutubeSearch(query, max_results=1).to_dict()
+            count += 1
     # results = YoutubeSearch(query, max_results=1).to_dict()
     try:
         link = f"https://youtube.com{results[0]['url_suffix']}"
